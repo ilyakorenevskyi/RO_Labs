@@ -49,6 +49,7 @@ public class GUI {
                         start1.setEnabled(false);
                         stop2.setEnabled(false);
                         thread1.setPriority(1);
+                        thread1.setDaemon(true);
                         thread1.start();
                         message.setText("");
                     }
@@ -82,6 +83,7 @@ public class GUI {
                         start2.setEnabled(false);
                         stop1.setEnabled(false);
                         thread2.setPriority(10);
+                        thread2.setDaemon(true);
                         thread2.start();
                         message.setText("");
                     }

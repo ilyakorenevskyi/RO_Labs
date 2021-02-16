@@ -50,7 +50,8 @@ public class MainWindow {
 
         CustomThread thread1 = new CustomThread(10,countSlider);
         CustomThread thread2 = new CustomThread(-10,countSlider);
-
+        thread1.setDaemon(true);
+        thread2.setDaemon(true);
         thread1.setPriority(5);
         thread2.setPriority(5);
 
