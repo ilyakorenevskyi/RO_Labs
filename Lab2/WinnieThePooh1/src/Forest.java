@@ -4,6 +4,7 @@ public class Forest {
     private boolean[][] forest;
     public Forest(int size){
         this.size = size;
+        forest = new boolean[size][size];
         for(int i = 0; i<size; i++)
             for(int j = 0; j<size; j++)
                 forest[i][j] = false;
