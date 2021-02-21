@@ -11,4 +11,7 @@ public class Forest {
         Random rand = new Random();
         forest[rand.nextInt(size)][rand.nextInt(size)] = true;
     }
+    public void findBear(){
+
+    }
 }
