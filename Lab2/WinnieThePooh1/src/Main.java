@@ -1,7 +1,9 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Forest forest = new Forest(20);
-        System.out.println("Lllll");
+        forest.findBear();
+        Thread.sleep(2000);
+        return;
     }
 
 }
