@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Forest {
+public class BeeManager {
     private int forestSize = 10;
     private boolean[][] forest;
     private int segmentsNumber = 5;
@@ -8,7 +8,7 @@ public class Forest {
     private Object syncObj = new Object();
     public int freeBees = 0;
 
-    public Forest(int size){
+    public BeeManager(int size){
         this.forestSize = size;
         forest = new boolean[size][size];
         for(int i = 0; i<size; i++)
