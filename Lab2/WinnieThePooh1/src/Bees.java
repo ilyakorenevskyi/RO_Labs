@@ -1,15 +1,12 @@
 public class Bees extends Thread {
-    private boolean isFound;
+    private boolean isFound = false;
     private int startI;
     private int endI;
     private volatile BeeManager manager;
-    private Object syncObj;
-    private boolean found = false;
-    public Bees(int startI, int endI, BeeManager forest, Object syncObj){
+    public Bees(int startI, int endI, BeeManager forest){
         this.startI = startI;
         this.endI= endI;
         this.manager = forest;
-        this.syncObj = syncObj;
     }
     @Override
     public void run(){
@@ -17,14 +14,15 @@ public class Bees extends Thread {
             for(int j = 0; j < manager.getForestSize();j++){
                 if(manager.getForest()[i][j]){
                     isFound = true;
-                    System.out.println("Found in " + i + " " + j);
                 }
             }
         }
-        synchronized (syncObj) {
-            if(isFound)
+        synchronized (manager) {
+            if(isFound) {
                 manager.setFound(true);
-            syncObj.notify();
+                System.out.println("Found in rows form " + startI + " to " + endI);
+            }
+            manager.notify();
             manager.freeBees++;
         }
     }
