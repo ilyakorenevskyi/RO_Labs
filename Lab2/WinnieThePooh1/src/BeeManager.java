@@ -6,7 +6,6 @@ public class BeeManager {
     private int teamsNumber = 3;
     private boolean found = false;
     public int freeBees = 0;
-
     public BeeManager(int size,int segmentsNumber){
         this.forestSize = size;
         this.segmentsNumber = segmentsNumber;
@@ -39,9 +38,8 @@ public class BeeManager {
         int currSegment = teamsNumber;
         while(true){
             synchronized (this){
-                if(!found && (freeBees == 0)){
+                if(freeBees == 0 && !found)
                     this.wait();
-                }
                 if(!found)
                     while (freeBees!=0 && currSegment<segmentsNumber){
                         new Bees(currSegment*forestSize/segmentsNumber, (++currSegment*forestSize/segmentsNumber), this).start();
