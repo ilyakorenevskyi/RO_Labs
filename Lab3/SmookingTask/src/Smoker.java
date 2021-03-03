@@ -10,19 +10,20 @@ public class Smoker extends Thread{
         this.mediatorSemaphore = mediatorSemaphore;
     }
     @Override
-    public void start() {
-        try {
-            smokerSemaphore.acquire();
-            if(smokingRoom.getMissingIng() == ingredient){
-                System.out.println("Smoker is smoking, please wait");
-                Thread.sleep(2000);
-                mediatorSemaphore.release();
+    public void run() {
+        while (true) {
+            try {
+                smokerSemaphore.acquire();
+                if (smokingRoom.getMissingIng() == ingredient) {
+                    System.out.println("Smoker " + ingredient.toString() + " is smoking, please wait");
+                    Thread.sleep(3000);
+                    mediatorSemaphore.release();
+                } else {
+                    smokerSemaphore.release();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            else{
-                smokerSemaphore.release();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }

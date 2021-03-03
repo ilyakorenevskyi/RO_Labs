@@ -10,27 +10,31 @@ public class Mediator extends Thread{
         this.mediatorSemaphore = mediatorSemaphore;
     }
     @Override
-    public void start() {
+    public void run() {
         while(true){
             try {
                 mediatorSemaphore.acquire();
                 System.out.println("Mediator is choosing ingredients");
-                Thread.sleep(1000);
+                Thread.sleep(2000);
                 int missingIng = random.nextInt(3);
                 switch (missingIng){
                     case (0) : {
+                        System.out.println(Ingredient.Tobacco.toString() + " is missing");
                         smokingRoom.setMissingIng(Ingredient.Tobacco);
                         break;
                     }
                     case (1) : {
+                        System.out.println(Ingredient.Paper.toString() +  " is missing");
                         smokingRoom.setMissingIng(Ingredient.Paper);
                         break;
                     }
                     case (2) : {
+                        System.out.println(Ingredient.Matches.toString() + " is missing");
                         smokingRoom.setMissingIng(Ingredient.Matches);
                         break;
                     }
                 }
+
                 smokerSemaphore.release();
             } catch (InterruptedException e) {
                 e.printStackTrace();

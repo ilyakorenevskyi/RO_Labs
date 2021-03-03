@@ -7,20 +7,26 @@ public class Semaphore {
 
     }
     public Semaphore(int permits){
-        if(permits>0) {
+        if(permits > 0) {
             this.maxPermits = permits;
         }
+
     }
 
     public synchronized void acquire() throws InterruptedException {
-        while(permits==maxPermits){
+
+        while(permits == maxPermits){
+
             this.wait();
+
         }
+
         permits++;
     }
 
     public synchronized void release(){
         permits--;
+
         this.notify();
     }
 }
