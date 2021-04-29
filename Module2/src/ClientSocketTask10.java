@@ -49,8 +49,8 @@ public class ClientSocketTask10 {
                         city.setCityName(splited.get(1));
                         city.setFoundationYear(Integer.parseInt(splited.get(2)));
                         city.setArea(Double.parseDouble(splited.get(3)));
-                        output.write(op);
-                        output.write(gson.toJson(city));
+                        output.println(op);
+                        output.println(gson.toJson(city));
                         String res= null;
                         try {
                             res = input.readLine();
@@ -75,8 +75,8 @@ public class ClientSocketTask10 {
                         city.setCityName(splited.get(1));
                         city.setFoundationYear(Integer.parseInt(splited.get(2)));
                         city.setArea(Double.parseDouble(splited.get(3)));
-                        output.write(op);
-                        output.write(gson.toJson(city));
+                        output.println(op);
+                        output.println(gson.toJson(city));
                         String res= null;
                         try {
                             res = input.readLine();
@@ -91,15 +91,15 @@ public class ClientSocketTask10 {
                 case (3):{
                     System.out.println("Enter city name to find data in format CityName ");
                     str = in.nextLine();
-                    output.write(op);
-                    output.write(str);
+                    output.println(op);
+                    output.println(str);
                     break;
                 }
                 case (4):{
                     System.out.println("Enter city id to delete data in format CityId ");
                     int id = in.nextInt();
-                    output.write(op);
-                    output.write(id);
+                    output.println(op);
+                    output.println(id);
                     String res= null;
                     try {
                         res = input.readLine();
@@ -124,8 +124,8 @@ public class ClientSocketTask10 {
                         ct.setCityId(Integer.parseInt(splited.get(2)));
                         ct.setLanguage(splited.get(3));
                         ct.setSize(Integer.parseInt(splited.get(4)));
-                        output.write(op);
-                        output.write(gson.toJson(splited));
+                        output.println(op);
+                        output.println(gson.toJson(splited));
                         String res= null;
                         try {
                             res = input.readLine();
@@ -151,8 +151,8 @@ public class ClientSocketTask10 {
                         ct.setCityId(Integer.parseInt(splited.get(2)));
                         ct.setLanguage(splited.get(3));
                         ct.setSize(Integer.parseInt(splited.get(4)));
-                        output.write(op);
-                        output.write(gson.toJson(splited));
+                        output.println(op);
+                        output.println(gson.toJson(splited));
                         String res= null;
                         try {
                             res = input.readLine();
@@ -167,15 +167,15 @@ public class ClientSocketTask10 {
                 case (7):{
                     System.out.println("Enter type name to find data in format CitizenTypeName ");
                     str = in.nextLine();
-                    output.write(op);
-                    output.write(str);
+                    output.println(op);
+                    output.println(str);
                     break;
                 }
                 case (8):{
                     System.out.println("Enter citizen type id to delete citizen type data in format CityId ");
                     int id = in.nextInt();
-                    output.write(op);
-                    output.write(id);
+                    output.println(op);
+                    output.println(id);
                     String res= null;
                     try {
                         res = input.readLine();
@@ -194,20 +194,20 @@ public class ClientSocketTask10 {
                         System.out.println("Wrong input");
                     }
                     else{
-                        output.write(op);
-                        output.write(splited.get(0));
-                        output.write(splited.get(0));
+                        output.println(op);
+                        output.println(splited.get(0));
+                        output.println(splited.get(0));
                     }
                     break;
                 }
                 case(10):{
                     System.out.println("Enter citizen type name");
                     str = in.nextLine();
-                    output.write(op);
-                    output.write(str);
+                    output.println(op);
+                    output.println(str);
                 }
                 case(11):{
-                    output.write(op);
+                    output.println(op);
                 }
                 default:{
                     System.out.println("Unknown operation");

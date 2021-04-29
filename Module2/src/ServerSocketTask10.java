@@ -60,19 +60,18 @@ class ServiceRequest implements Runnable {
             int op = -2;
             System.out.println("I'm here");
             while(op!=-1){
-
                 op = Integer.parseInt(input.readLine());
                 System.out.println(op);
-            switch (op) {
+                switch (op) {
                 case (1): {
                     String json = input.readLine();
                     Gson gson = new Gson();
                     City city = gson.fromJson(json, City.class);
 
                     if (DAOTask10.createCity(city) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -81,9 +80,9 @@ class ServiceRequest implements Runnable {
                     Gson gson = new Gson();
                     City city = gson.fromJson(json, City.class);
                     if (DAOTask10.updateCity(city) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -92,15 +91,15 @@ class ServiceRequest implements Runnable {
                     List<City> cities = DAOTask10.readCitiesByName(name);
                     Gson gson = new Gson();
                     String json = gson.toJson(cities);
-                    output.write(json);
+                    output.println(json);
                     break;
                 }
                 case (4): {
                     int id = Integer.parseInt(input.readLine());
                     if (DAOTask10.deleteCity(id) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -109,9 +108,9 @@ class ServiceRequest implements Runnable {
                     Gson gson = new Gson();
                     CitizenType ct = gson.fromJson(json, CitizenType.class);
                     if (DAOTask10.createCitizenType(ct) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -120,9 +119,9 @@ class ServiceRequest implements Runnable {
                     Gson gson = new Gson();
                     CitizenType ct = gson.fromJson(json, CitizenType.class);
                     if (DAOTask10.updateCitizenType(ct) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -131,16 +130,16 @@ class ServiceRequest implements Runnable {
                     List<CitizenType> cts = DAOTask10.readCitizenTypeByName(name);
                     Gson gson = new Gson();
                     String json = gson.toJson(cts);
-                    output.write(json);
+                    output.println(json);
                     break;
 
                 }
                 case (8): {
                     int id = Integer.parseInt(input.readLine());
                     if (DAOTask10.deleteCitizenType(id) == 1) {
-                        output.write("Success");
+                        output.println("Success");
                     } else {
-                        output.write("Error");
+                        output.println("Error");
                     }
                     break;
                 }
@@ -150,7 +149,7 @@ class ServiceRequest implements Runnable {
                     List<CitizenType> cts = DAOTask10.query1(name,language);
                     Gson gson = new Gson();
                     String json = gson.toJson(cts);
-                    output.write(json);
+                    output.println(json);
                     break;
                 }
                 case (10): {
@@ -158,14 +157,14 @@ class ServiceRequest implements Runnable {
                     List<City> cts = DAOTask10.query2(name);
                     Gson gson = new Gson();
                     String json = gson.toJson(cts);
-                    output.write(json);
+                    output.println(json);
                     break;
                 }
                 case (11): {
                     List<CitizenType> cts = DAOTask10.query3();
                     Gson gson = new Gson();
                     String json = gson.toJson(cts);
-                    output.write(json);
+                    output.println(json);
                     break;
                 }
                 default: {
@@ -173,6 +172,7 @@ class ServiceRequest implements Runnable {
                 }
             }
             }
+
             clientSocket.close();
         }catch(IOException | ClassNotFoundException e) {
             e.printStackTrace();
